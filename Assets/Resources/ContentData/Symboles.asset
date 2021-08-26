@@ -13,27 +13,29 @@ MonoBehaviour:
   m_Name: Symboles
   m_EditorClassIdentifier: 
   _contents:
+  - _sprite: {fileID: 4963718625464178563, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: A
+  - _sprite: {fileID: 7783457984840754399, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: B
+  - _sprite: {fileID: 3234300448368640894, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: C
   - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
     _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
-  - _sprite: {fileID: 7911670913450602933, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
-    _gameName: D
+  - _sprite: {fileID: -6426668015567183463, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: F
+  - _sprite: {fileID: 216406037199867053, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: G
+  - _sprite: {fileID: -2756605603065543306, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: J
+  - _sprite: {fileID: -3541686595128163680, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: I
+  - _sprite: {fileID: 4652326554734856401, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: E
+  - _sprite: {fileID: -8235857483100294123, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: H
+  - _sprite: {fileID: -1127063002332224934, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: K
+  - _sprite: {fileID: -5901097786099144959, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: L
+  - _sprite: {fileID: 3295844289267200183, guid: d1a65ac3cab4e464ba225fbd8d9b9a65, type: 3}
+    _gameName: M

@@ -41,7 +41,7 @@ namespace Assets.Scripts
                     position.y += j * _tileSize.y;
                     tile.transform.position = position;
                     tile.Activate();
-                    tile.SetGameTileContent(contents[i * j + j]);
+                    tile.SetGameTileContent(contents[i * wight + j]);
                     _lastTiles.Add(tile);
                 }
             }
