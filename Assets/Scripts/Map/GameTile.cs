@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Assets.Scripts
 {
@@ -9,7 +10,7 @@ namespace Assets.Scripts
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Vector2 _size;
 
-        private GameTileContent _gameTileContent;
+        public GameTileContent TileContent { get; private set;}
 
         public bool IsActive { get; private set; }
 
@@ -17,8 +18,18 @@ namespace Assets.Scripts
 
         public void SetGameTileContent(GameTileContent gameTileContent)
         {
-            _gameTileContent = gameTileContent;
-            _spriteRenderer.sprite = _gameTileContent.Sprite;
+            TileContent = gameTileContent;
+            _spriteRenderer.sprite = TileContent.Sprite;
+        }
+
+        public void OnCorrectlySelect()
+        {
+
+        }
+
+        public void OnUncorrectlySelect()
+        {
+
         }
 
         public void Activate()

@@ -28,17 +28,17 @@ namespace Assets.Scripts
             }
 
             Vector2 startSpawnPosition;
-            startSpawnPosition.x = _center.x - ((float)wight / 2 - _tileSize.y / 2) * _tileSize.x;
-            startSpawnPosition.y = _center.y - ((float)height / 2 - _tileSize.y / 2) * _tileSize.y;
+            startSpawnPosition.x = _center.x - ((float)wight / 2 - 0.5f) * _tileSize.x;
+            startSpawnPosition.y = _center.y - ((float)height / 2 - 0.5f) * _tileSize.y;
 
-            for(int i = 0; i < wight; i++)
+            for(int i = 0; i < height; i++)
             {
-                for(int j = 0; j < height; j++)
+                for(int j = 0; j < wight; j++)
                 {
                     var tile = _pool.GetTile();
                     var position = startSpawnPosition;
-                    position.x += i * _tileSize.x;
-                    position.y += j * _tileSize.y;
+                    position.x += j * _tileSize.x;
+                    position.y += i * _tileSize.y;
                     tile.transform.position = position;
                     tile.Activate();
                     tile.SetGameTileContent(contents[i * wight + j]);

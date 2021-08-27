@@ -11,6 +11,7 @@ namespace Assets.Scripts
     {
         [SerializeField] private Level[] _levels;
         [SerializeField] private TMP_Text _findingObjectName;
+        [SerializeField] private float _delayAFterCorrectSelecting;
 
         [SerializeField] private TileSpawner _tileSpawner;
 
@@ -20,6 +21,7 @@ namespace Assets.Scripts
 
         public  GameTileContent RightTile { get; private set; }
 
+        public event UnityAction StartedLevel;
         public event UnityAction EndedLevels;
 
         private void Start()
@@ -36,8 +38,15 @@ namespace Assets.Scripts
 
         public void GoNextLevel()
         {
+            StartCoroutine(GoNextLevelWithDelay());
+        }
+
+        private IEnumerator GoNextLevelWithDelay()
+        {
+            yield return new WaitForSeconds(_delayAFterCorrectSelecting);
+
             _currentLevelIndex++;
-            if(_currentLevelIndex >= _levels.Length)
+            if (_currentLevelIndex >= _levels.Length)
             {
                 EndedLevels?.Invoke();
             }
@@ -63,6 +72,8 @@ namespace Assets.Scripts
             _selectedContents.Add(rightSelected);
             _findingObjectName.text = RightTile.Name;
             _tileSpawner.CreateMap(_currentLevel.Wight, _currentLevel.Height, contents);
+
+            StartedLevel?.Invoke();
         }
 
         [System.Serializable]
