@@ -9,6 +9,7 @@ namespace Assets.Scripts
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Vector2 _size;
+        [SerializeField] private AnimationCurve _curve;
 
         public GameTileContent TileContent { get; private set;}
 
@@ -24,18 +25,26 @@ namespace Assets.Scripts
 
         public void OnCorrectlySelect()
         {
-
+            Vector3 startScale = _spriteRenderer.transform.localScale;
+            _spriteRenderer.transform.DOScale(startScale.x * 1.3f, 0.5f);
+            _spriteRenderer.transform.DOScale(startScale.x, 0.5f).SetDelay(0.5f);
         }
 
         public void OnUncorrectlySelect()
         {
-
+            
         }
 
-        public void Activate()
+        public void Activate(bool withEffect)
         {
             gameObject.SetActive(true);
             IsActive = true;
+
+            if (withEffect)
+            {
+                gameObject.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                gameObject.transform.DOScale(_size.x, 2);
+            }
         }
 
         public void Disactivate()

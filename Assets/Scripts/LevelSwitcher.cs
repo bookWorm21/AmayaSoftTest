@@ -4,6 +4,8 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Assets.Scripts
 {
@@ -12,6 +14,10 @@ namespace Assets.Scripts
         [SerializeField] private Level[] _levels;
         [SerializeField] private TMP_Text _findingObjectName;
         [SerializeField] private float _delayAFterCorrectSelecting;
+        [SerializeField] private Button _restartButton;
+
+        [SerializeField] private GameObject _container;
+        [SerializeField] private TMP_Text[] _textes;
 
         [SerializeField] private TileSpawner _tileSpawner;
 
@@ -26,9 +32,8 @@ namespace Assets.Scripts
 
         private void Start()
         {
-            _currentLevelIndex = 0;
-            _currentLevel = _levels[_currentLevelIndex];
-            StartCurrentLevel();
+            StartOver();
+            _restartButton.onClick.AddListener(StartOver);
         }
 
         public void Init(TileSpawner tileSpawner)
@@ -41,6 +46,21 @@ namespace Assets.Scripts
             StartCoroutine(GoNextLevelWithDelay());
         }
 
+        public void StartOver()
+        {
+            foreach(var text in _textes)
+            {
+                text.DOFade(0, 0);
+                text.DOFade(1, 2);
+            }
+
+            _currentLevelIndex = 0;
+            _currentLevel = _levels[_currentLevelIndex];
+            StartCurrentLevel(true);
+            _restartButton.gameObject.SetActive(false);
+            _selectedContents.Clear();
+        }
+
         private IEnumerator GoNextLevelWithDelay()
         {
             yield return new WaitForSeconds(_delayAFterCorrectSelecting);
@@ -48,16 +68,17 @@ namespace Assets.Scripts
             _currentLevelIndex++;
             if (_currentLevelIndex >= _levels.Length)
             {
+                _restartButton.gameObject.SetActive(true);
                 EndedLevels?.Invoke();
             }
             else
             {
                 _currentLevel = _levels[_currentLevelIndex];
-                StartCurrentLevel();
+                StartCurrentLevel(false);
             }
         }
 
-        private void StartCurrentLevel()
+        private void StartCurrentLevel(bool withEffect)
         {
             GameTileContent[] contents = _currentLevel.TileContentData.GetTilesContent(_currentLevel.Wight * _currentLevel.Height).ToArray();
 
@@ -71,7 +92,7 @@ namespace Assets.Scripts
             RightTile = rightSelected;
             _selectedContents.Add(rightSelected);
             _findingObjectName.text = RightTile.Name;
-            _tileSpawner.CreateMap(_currentLevel.Wight, _currentLevel.Height, contents);
+            _tileSpawner.CreateMap(_currentLevel.Wight, _currentLevel.Height, contents, withEffect);
 
             StartedLevel?.Invoke();
         }

@@ -12,7 +12,7 @@ namespace Assets.Scripts
         private List<GameTile> _lastTiles = new List<GameTile>();
         private Vector2 _tileSize;
 
-        public void CreateMap(int wight, int height, GameTileContent[] contents)
+        public void CreateMap(int wight, int height, GameTileContent[] contents, bool withEffect)
         {
             var tileTemp = _pool.GetTile();
             _tileSize = tileTemp.Size;
@@ -40,7 +40,7 @@ namespace Assets.Scripts
                     position.x += j * _tileSize.x;
                     position.y += i * _tileSize.y;
                     tile.transform.position = position;
-                    tile.Activate();
+                    tile.Activate(withEffect);
                     tile.SetGameTileContent(contents[i * wight + j]);
                     _lastTiles.Add(tile);
                 }
